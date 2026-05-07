@@ -1,0 +1,58 @@
+# Local planning and reports
+OPEN_SOURCE_OPERATION_PLAN.md
+OPEN_SOURCE_REPORT.md
+
+# Python cache and build outputs
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dll
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.cfgs/
+
+# Editors and OS files
+.claude/
+.cursor/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Runtime outputs
+logs/
+outputs/
+results/
+*.pth
+*.pt
+*.ckpt
+*.npy
+*.npz
+
+# Dataset contents are intentionally excluded from the public repo.
+dataset/*
+!dataset/README.md
+
+# Large generated assets
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
