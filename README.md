@@ -1,6 +1,6 @@
-# CFGS
+# Xfreq-GS
 
-CFGS is the public-release codebase for the paper's RF spectrum synthesis experiments. This repository keeps only the minimal training, inference, rendering, and CUDA extension sources needed to reproduce the core workflow.
+XfreqGS is the public-release codebase for the paper's RF spectrum synthesis experiments. This repository keeps only the minimal training, inference, rendering, and CUDA extension sources needed to reproduce the core workflow.
 
 ## Repository Scope
 
@@ -14,7 +14,7 @@ Create the conda environment and install the CUDA extensions:
 
 ```bash
 conda env create -f environment.yml
-conda activate cfgs
+conda activate xfreqgs
 
 pip install -e ./submodules/simple-knn
 pip install -e ./submodules/complex-gaussian-tracer
@@ -22,7 +22,7 @@ pip install -e ./submodules/complex-gaussian-tracer
 
 ## Dataset Layout
 
-We provide a method for generating the CFGS dataset.
+We provide a method for generating the XfreqGS dataset.
 And a small dataset is included to help quickly verify the code.
 
 Please place the generated dataset, or the provided small verification dataset, under:
@@ -70,7 +70,7 @@ Examples with common parameters:
 Use a custom experiment name:
 
 ```bash
-python train.py --dataset <dataset_name> --exp_name cfgs_baseline
+python train.py --dataset <dataset_name> --exp_name xfreqgs
 ```
 
 Use custom dataset and log roots:
@@ -106,9 +106,9 @@ Resume training from a checkpoint:
 ```bash
 python train.py \
   --dataset <dataset_name> \
-  --exp_name cfgs_baseline \
+  --exp_name xfreqgs_baseline \
   --iterations 30000 \
-  --start_checkpoint logs/<dataset_name>/cfgs_baseline/chkpnt30000.pth
+  --start_checkpoint logs/<dataset_name>/xfreqgs_baseline/chkpnt30000.pth
 ```
 
 Useful parameters:

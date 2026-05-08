@@ -1,4 +1,4 @@
-name: cfgs
+name: xfreqgs
 channels:
   - pytorch
   - nvidia
