@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Virtualenv
+.venv/
+venv/
+env/
+
+# IDE / local tooling
+.idea/
+.vscode/
+.claude/
+
+# Archives / scratch
+*.7z
+*.zip
+*.tar
+*.tar.gz
+
+# Generator side-effects (written under dataset/<dataset_name>/ by build_dataset.py)
+**/build_metadata.yml

@@ -1,0 +1,4 @@
+dataset_name: scene01
+gateway1:
+  position: [2, 1, 0]
+  orientation: [0.0, 0.0, 0.0, 1.0]

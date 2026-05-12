@@ -1,0 +1,151 @@
+<scene version="2.1.0">
+
+<!-- Defaults, these can be set via the command line: -Darg=value -->
+
+
+<!-- Camera and Rendering Parameters -->
+
+	<integrator type="path" id="elm__0" name="elm__0">
+		<integer name="max_depth" value="12"/>
+	</integrator>
+
+<!-- Materials -->
+
+	<bsdf type="diffuse" id="mat-itu_concrete" name="mat-itu_concrete">
+		<rgb value="1.000000 0.000000 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-itu_wood" name="mat-itu_wood">
+		<rgb value="1.000000 0.000000 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="blendbsdf" id="mat-itu_metal" name="mat-itu_metal">
+		<float name="weight" value="0.500000"/>
+		<bsdf type="twosided" name="bsdf1">
+			<bsdf type="roughconductor" name="bsdf">
+				<float name="alpha" value="0.200000"/>
+				<string name="distribution" value="beckmann"/>
+				<rgb value="0.733426 0.749753 0.800000" name="specular_reflectance"/>
+			</bsdf>
+		</bsdf>
+		<bsdf type="twosided" name="bsdf2">
+			<bsdf type="roughconductor" name="bsdf">
+				<float name="alpha" value="0.200000"/>
+				<string name="distribution" value="beckmann"/>
+				<rgb value="0.075547 0.090800 1.000000" name="specular_reflectance"/>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="blendbsdf" id="mat-itu_brick" name="mat-itu_brick">
+		<float name="weight" value="0.500000"/>
+		<bsdf type="twosided" name="bsdf1">
+			<bsdf type="diffuse" name="bsdf">
+				<rgb value="0.800000 0.800000 0.800000" name="reflectance"/>
+			</bsdf>
+		</bsdf>
+		<bsdf type="twosided" name="bsdf2">
+			<bsdf type="roughconductor" name="bsdf">
+				<float name="alpha" value="0.200000"/>
+				<string name="distribution" value="beckmann"/>
+				<rgb value="0.800000 0.800000 0.800000" name="specular_reflectance"/>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-itu_glass" name="mat-itu_glass">
+		<rgb value="1.000000 0.000000 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-itu_plasterboard" name="mat-itu_plasterboard">
+		<rgb value="1.000000 0.000000 0.300000" name="reflectance"/>
+	</bsdf>
+
+<!-- Emitters -->
+
+
+<!-- Shapes -->
+
+	<shape type="ply" id="elm__2" name="elm__2">
+		<string name="filename" value="meshes/wall.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__3" name="elm__3">
+		<string name="filename" value="meshes/ground.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__5" name="elm__5">
+		<string name="filename" value="meshes/sofa.ply"/>
+		<ref id="mat-itu_wood" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__6" name="elm__6">
+		<string name="filename" value="meshes/bed-itu_wood.ply"/>
+		<ref id="mat-itu_wood" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__7" name="elm__7">
+		<string name="filename" value="meshes/bed-itu_wood-001.ply"/>
+		<ref id="mat-itu_wood" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__9" name="elm__9">
+		<string name="filename" value="meshes/table-itu_metal.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__10" name="elm__10">
+		<string name="filename" value="meshes/table-itu_metal-001.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__11" name="elm__11">
+		<string name="filename" value="meshes/cabinet-itu_wood.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_wood" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__12" name="elm__12">
+		<string name="filename" value="meshes/cabinet-itu_metal.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__13" name="elm__13">
+		<string name="filename" value="meshes/Cube_017.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__15" name="elm__15">
+		<string name="filename" value="meshes/toilet.ply"/>
+		<ref id="mat-itu_brick" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__16" name="elm__16">
+		<string name="filename" value="meshes/tube.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__17" name="elm__17">
+		<string name="filename" value="meshes/Cylinder_010.ply"/>
+		<ref id="mat-itu_metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__18" name="elm__18">
+		<string name="filename" value="meshes/Cylinder_009.ply"/>
+		<ref id="mat-itu_metal" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__20" name="elm__20">
+		<string name="filename" value="meshes/glass-itu_brick.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_brick" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__21" name="elm__21">
+		<string name="filename" value="meshes/glass-itu_glass.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_glass" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__22" name="elm__22">
+		<string name="filename" value="meshes/Cube_010.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_brick" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__24" name="elm__24">
+		<string name="filename" value="meshes/upper.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_plasterboard" name="bsdf"/>
+	</shape>
+
+<!-- Volumes -->
+
+</scene>

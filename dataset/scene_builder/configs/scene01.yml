@@ -1,0 +1,75 @@
+# ---------------------------------------------------------------------------
+# Example config: reproduces the scene01 reference dataset (10 freqs x 27 tx).
+# Paths are resolved relative to THIS file.
+# ---------------------------------------------------------------------------
+
+dataset_name: scene01
+
+# Sionna / Mitsuba scene description.
+scene_xml: ../assets/scene01/scene.xml
+
+# Where the <dataset_name>/ folder will be written. Default: dataset/.
+output_root: ../../
+
+# Frequencies used to generate one spectrum per (freq, tx) pair. Units: Hz.
+frequencies_hz:
+  - 1.0e9
+  - 2.4e9
+  - 5.0e9
+  - 10.0e9
+  - 24.25e9
+  - 37.0e9
+  - 47.0e9
+  - 60.0e9
+  - 77.0e9
+  - 94.0e9
+
+# Receiver (the "gateway") placed once in the scene.
+# orientation_euler is Sionna's intrinsic ZYX (yaw, pitch, roll) in radians.
+# The quaternion in gateway_info.yml is derived from these Euler angles.
+rx:
+  position: [2.0, 1.0, 0.0]
+  orientation_euler: [0.0, 0.0, 0.0]
+
+# Antenna arrays (see sionna.rt.PlanarArray for pattern / polarization options).
+tx_array:
+  num_rows: 1
+  num_cols: 1
+  pattern: tr38901
+  polarization: V
+
+rx_array:
+  num_rows: 4
+  num_cols: 4
+  vertical_spacing: 0.5
+  horizontal_spacing: 0.5
+  pattern: dipole
+  polarization: V
+
+# Transmitter positions. Either provide a CSV (x,y,z columns) OR a 3D grid.
+#   csv: path/to/positions.csv
+#   grid:
+#     start: [x0, y0, z0]
+#     counts: [nx, ny, nz]
+#     steps:  [sx, sy, sz]           # meters
+#     safety_radius: 0.4             # reject points with geometry closer than this
+tx_positions:
+  grid:
+    start: [0.0, 0.0, 1.0]
+    counts: [3, 3, 3]
+    steps: [0.1, 0.1, 0.1]
+    safety_radius: 0.4
+
+# Sionna RT PathSolver options.
+solver:
+  max_depth: 5
+  samples_per_src: 100000
+  synthetic_array: false
+  specular_reflection: true
+  diffraction: true
+  diffuse_reflection: false
+
+# Bartlett PAS grid resolution (height = theta bins, width = phi bins).
+pas:
+  grid_h: 90
+  grid_w: 360

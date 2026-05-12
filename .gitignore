@@ -41,10 +41,6 @@ results/
 *.npy
 *.npz
 
-# Dataset contents are intentionally excluded from the public repo.
-dataset/*
-!dataset/README.md
-
 # Large generated assets
 *.png
 *.jpg
@@ -56,3 +52,18 @@ dataset/*
 *.tgz
 *.7z
 *.rar
+
+# Dataset contents: keep only the reference scene, the generator, and docs.
+# Any other user-built datasets under dataset/ stay untracked by default.
+# This block is placed AFTER the global *.png / *.jpg / ... rules so the
+# re-include lines below win over them for files under dataset/.
+dataset/*
+!dataset/README.md
+!dataset/.gitignore
+!dataset/scene01/
+!dataset/scene01/**
+!dataset/scene_builder/
+!dataset/scene_builder/**
+dataset/.claude/
+dataset/**/__pycache__/
+dataset/**/build_metadata.yml
